@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <context:property-placeholder
+  location="classpath:com/foo/jdbc.properties"/>
+  <bean id = "addressDetails" class = "com.capgemini.spring.organization.Address">
+  <constructor-arg index = "0" value = "501e" type="String"/>
+  <constructor-arg index = "1" value = "Vijayawada" type="String"/>
+  <constructor-arg index = "2" value = "Hyderabad" type="String"/>
+  <constructor-arg index = "3" value = "Karnataka" type="String"/>
+  <constructor-arg index = "4" value = "500060" type="int"/>
+  </bean>
+  <bean id = "details" class = "com.capgemini.spring.organization.Organization">
+  <constructor-arg index = "0" value = "101" type="int"/>
+  <constructor-arg index = "1" value = "Capgemini" type="String"/>
+  <constructor-arg index = "2" value = "250000" type="double"/>
+  <constructor-arg index = "3" ref = "addressDetails"/>
+  <constructor-arg index = "4">
+  <list>
+  <value>Raji</value>
+  <value>Mouli</value>
+  <value>Karthik</value>
+  <value>Murali</value>
+  </list>
+  </constructor-arg>
+  <constructor-arg index = "5">
+  <set>
+  <value>Developing</value>
+  <value>Testing</value>
+  <value>Analysing</value>
+  </set>
+  </constructor-arg>
+  <constructor-arg index = "6">
+  <map>
+  <entry key="Developing" value="John"/>
+  <entry key="Testing" value="Mary"/>
+  <entry key="Analysing" value="Alex"/>
+  </map>
+  </constructor-arg>
+  </bean>
+</beans>
+
+
